@@ -1,0 +1,97 @@
+/*==app==*/
+.app{
+   text-align: center;
+   margin: 0px auto;
+   background: #25B891;
+   width: 50%;
+   box-shadow: 5px 5px 15px black;
+   border-radius: 50px;
+}
+.app h1{
+   margin: 0;
+}
+/*==select==*/
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+   margin: 0 auto;
+   border: 1px solid #44FE74;
+   box-shadow: 5px 5px 15px black;
+}
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; 
+   width: 268px;
+}
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+select:focus{outline:0}
+/*==month==*/
+.month button, .month h3{
+   display: inline-block;
+   padding: 10px;
+}
+.month h3{
+   width: 34%;
+   text-align: center;
+}
+.month button{
+   border-radius: 20px;
+   background: #292828;
+   color: #CCCBCB;
+}
+/*==days==*/
+.weekdays{
+   list-style: none;
+   padding-left: 0;
+   color: red;
+}
+.weekdays li{
+   display: inline-block;
+   padding: 10px;
+}
+/*==notes==*/
+#notes{
+   display: block;
+   margin: 20px auto;
+   border-radius: 20px;
+   padding: 6px;
+   box-shadow: 3px 3px 5px #434242;
+}
+/*==addTime==*/
+.addTime{
+   display: inline-block;
+}
+.addTime form input{
+   border-radius: 20px;
+   font-size: 1.2em;
+   text-align: center;
+   height: 30px;
+}
+/*==submit==*/
+.submit button{
+   margin: 15px;
+   padding: 5px;
+   font-size: 1.2em;
+}
+.month button:focus, .addTime form input, #notes {outline:0;}
+
