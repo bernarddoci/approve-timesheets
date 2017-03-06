@@ -14,7 +14,7 @@ class Month extends Component{
 		return (
 			<div className="month">
 				<button onClick={this.props.prevMonth}>Prev</button>
-				<h3>{this.state.months[this.props.month]}</h3>
+				<h3>{this.state.months[this.props.month_number]}</h3>
 				<button onClick={this.props.nextMonth}>Next</button>
 			</div>);
 	}

@@ -10,7 +10,7 @@ class App extends Component {
 		super(props);
 		this.state = {
 			users: [],
-			id: '',
+			user_id: 0,
 			hour: 0,
 			min: 0,
 			notes: ''
@@ -32,7 +32,7 @@ class App extends Component {
 
 	getUserId(e){
 		this.setState({
-			id: e.target.value
+			user_id: e.target.value
 		})
 	}
 
@@ -66,7 +66,7 @@ class App extends Component {
 				value={this.state.value} 
 				onHandleChange={this.getUserId}
 				users={this.state.users}/>
-				<Calendar />
+				<Calendar user_id={this.state.user_id}/>
 				<textarea
 				id="notes" 
 				name="notes"
