@@ -1,56 +1,47 @@
 import React, { Component } from 'react';
-import Month from './month';
 import DaysHeader from './days-header';
-//import Week from './week';
-import axios from 'axios';
+import MonthWeeks from './month-weeks';
 
+import '../App.css';
 class Calendar extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			month_number: new Date().getMonth(),
-			weeks: []
-		};
-		this.nextMonth = this.nextMonth.bind(this);
-		this.prevMonth = this.prevMonth.bind(this);
-		this.getWeeks = this.getWeeks.bind(this);
+			months: [ "January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December" ],
+			days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+		}
 	}
-
-	nextMonth(){
-		this.setState({month_number: this.state.month_number <= 10? this.state.month_number + 1: 11});
-	}
-
-	prevMonth(){
-		this.setState({month_number: this.state.month_number >= 1? this.state.month_number - 1: 0});
-	}
-
-	getWeeks(){
-		// get week_id here...
-		let user_id = this.props.user_id;
-		let month_number = this.state.month_number + 1; 
-		if(user_id){
-			axios.get(` https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${month_number}/2017/${user_id}`)
-				.then((weeks)=>{
-					this.setState({weeks: weeks.data.data.weeks});
-				})
-				.catch((error)=>{console.log(error)});	
-		}	
-	}
-
-	
-
 
 	render(){
-		console.log(this.state.weeks)
 		return (
-			<div className="calendar">
-				<Month 
-					nextMonth={this.nextMonth} 
-					prevMonth={this.prevMonth} 
-					month_number={this.state.month_number}/>
-				<DaysHeader />
-				
-			</div>);
+		<div className="calendar">
+			<div className="month-header">
+				<button onClick={this.props.prevMonth}>Prev</button>
+				<h2>{this.state.months[this.props.month_number]}</h2>
+				<button onClick={this.props.nextMonth}>Next</button>
+			</div>
+			<div className="days-header">
+				<table>
+					<tbody>
+						<tr>
+							{this.state.days.map((day)=>{
+								return <DaysHeader key={day} day={day}/> 
+							})}
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div className="month">
+				<table>
+					<tbody>
+						{this.props.weeks.map((week)=>{
+							return <MonthWeeks key={week.week_id} days={week.days_in_week}/>
+						})}	
+					</tbody>
+				</table>
+			</div>
+		</div>);
 	}
 }
 

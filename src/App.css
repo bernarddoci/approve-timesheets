@@ -1,97 +1,72 @@
 /*==app==*/
 .app{
-   text-align: center;
-   margin: 0px auto;
-   background: #25B891;
-   width: 50%;
-   box-shadow: 5px 5px 15px black;
-   border-radius: 50px;
+	background: #149E79;
+	margin: 0 auto;
+	padding: 3%;
+	width: 40%;
+	box-shadow: 10px 10px 20px #808080;
+	text-align: center;
+	color: #FFA85A;
 }
 .app h1{
-   margin: 0;
+	text-shadow: 1px 1px #FCFBFB;
+	font-size: 3em;
 }
-/*==select==*/
-.styled-select {
-   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-   height: 29px;
-   overflow: hidden;
-   width: 240px;
-   margin: 0 auto;
-   border: 1px solid #44FE74;
-   box-shadow: 5px 5px 15px black;
+.app .select-user select{
+	width: 50%;
+	font-family: computer;
+	font-size: 1.2em;
+	padding: 1%;
+	margin: 0 0 10% 0;
 }
-.styled-select select {
-   background: transparent;
-   border: none;
-   font-size: 14px;
-   height: 29px;
-   padding: 5px; 
-   width: 268px;
+/*==calendar==*/
+.app .calendar{
+	background: #05513D;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px #333232;
+	height: 380px;
 }
-.styled-select.slate {
-   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-   height: 34px;
-   width: 240px;
+.app .month-header button,
+.app .month-header h2{
+	display: inline-block;
 }
-.styled-select.slate select {
-   border: 1px solid #ccc;
-   font-size: 16px;
-   height: 34px;
-   width: 268px;
+.app .month-header h2{
+	width: 120px;
 }
-.rounded {
-   -webkit-border-radius: 20px;
-   -moz-border-radius: 20px;
-   border-radius: 20px;
+.app .month-header button{
+	padding: 2%;
+	border-radius: 50%;
+	margin: 20px;
+	color: white;
+	background: #3F2A2A;
 }
-select:focus{outline:0}
-/*==month==*/
-.month button, .month h3{
-   display: inline-block;
-   padding: 10px;
+.app .calendar table{
+	margin: 0 auto;
 }
-.month h3{
-   width: 34%;
-   text-align: center;
+.app .calendar .days-header table td{
+	padding: 11px;
 }
-.month button{
-   border-radius: 20px;
-   background: #292828;
-   color: #CCCBCB;
+.app .calendar .month table td{
+	padding: 15px;
+	background: #492B2B;
 }
-/*==days==*/
-.weekdays{
-   list-style: none;
-   padding-left: 0;
-   color: red;
+.app .calendar .month table td:hover{
+	background: #FFA85A;
+	color: #421212;
 }
-.weekdays li{
-   display: inline-block;
-   padding: 10px;
+/*==AddTime & notes==*/
+.app .addTime, .app textarea{
+	margin: 10px;
 }
-/*==notes==*/
-#notes{
-   display: block;
-   margin: 20px auto;
-   border-radius: 20px;
-   padding: 6px;
-   box-shadow: 3px 3px 5px #434242;
+.app .addTime input, .app textarea{
+	border-radius: 20px;
+	border: 1px solid #7D7D7C;
+	padding: 3px;
+	font-size: 1em;
 }
-/*==addTime==*/
-.addTime{
-   display: inline-block;
+.app .month-header button:focus,
+.app .addTime input:focus,
+.app textarea:focus{
+	outline: 0;
 }
-.addTime form input{
-   border-radius: 20px;
-   font-size: 1.2em;
-   text-align: center;
-   height: 30px;
-}
-/*==submit==*/
-.submit button{
-   margin: 15px;
-   padding: 5px;
-   font-size: 1.2em;
-}
-.month button:focus, .addTime form input, #notes {outline:0;}
 
