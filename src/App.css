@@ -20,12 +20,6 @@
 	margin: 0 0 10% 0;
 }
 /*==calendar==*/
-.app .calendar{
-	background: #05513D;
-	border-radius: 10px;
-	box-shadow: 2px 2px 5px #333232;
-	height: 380px;
-}
 .app .month-header button,
 .app .month-header h2{
 	display: inline-block;
@@ -45,6 +39,12 @@
 }
 .app .calendar .days-header table td{
 	padding: 11px;
+}
+.app .calendar .month{
+	background: #05513D;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px #333232;
+	padding: 20px;
 }
 .app .calendar .month table td{
 	padding: 15px;
@@ -68,5 +68,15 @@
 .app .addTime input:focus,
 .app textarea:focus{
 	outline: 0;
+}
+.app .addReject button{
+	border-radius: 10px;
+	width: 120px;
+	height: 40px;
+	margin: 5px;
+	font-size: 1em;
+	font-weight: bold;
+	background: #FFA85A;
+	color: #2D2B2B;
 }
 

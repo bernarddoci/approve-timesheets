@@ -109,6 +109,10 @@ class App extends Component {
         	<AddTime 
         		onAddHour={this.handleHour} 
         		onAddMin={this.handleMin}/>
+        	<div className="addReject">
+        		<button>Approve</button>
+        		<button>Reject</button>
+        	</div>
         </div>);
         }
     }
