@@ -73,7 +73,7 @@ class App extends Component {
 		this.setState({
 			notes: e.target.value
 		})
-	}	
+	}
 
     componentDidMount() {
 		this.getUsers();
@@ -83,7 +83,6 @@ class App extends Component {
 		if(prevState.user_id !== this.state.user_id || prevState.month_number !== this.state.month_number){
 			this.getWeeks();
 		}
-		
 	}
 
     render() {
