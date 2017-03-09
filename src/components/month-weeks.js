@@ -5,6 +5,7 @@ const MonthWeeks = (props) =>{
 	return (
 		<tr>
 			{props.days.map((day)=>{
+				// console.log(day);
 				return <Day key={day.day_number} day={day.day_number}/>;
 			})}
 		</tr>);

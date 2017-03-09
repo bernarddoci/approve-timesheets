@@ -26,6 +26,7 @@ class App extends Component {
         this.handleHour = this.handleHour.bind(this);
 		this.handleMin = this.handleMin.bind(this);
 		this.handleNotes = this.handleNotes.bind(this);
+		this.getWeekId = this.getWeekId.bind(this);
     }
 
     getUsers() {
@@ -63,6 +64,12 @@ class App extends Component {
 		});
 	}
 
+	getWeekId(e){
+		this.setState({
+			week_id: e.target.value
+		})
+	}
+
 	handleMin(e){
 		this.setState({
 			min: e.target.value
@@ -74,6 +81,31 @@ class App extends Component {
 			notes: e.target.value
 		})
 	}
+
+	approve(){
+		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/${this.state.weeks}/${this.state.week_id}/users/approver_id`, {
+		    status: 'approved'
+	  	})
+  		.then(function (response) {
+	  		console.log(response);
+  		})
+  		.catch(function (error) {
+	  		console.log(error);
+  		});
+	}
+
+	reject(){
+		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${this.state.week_id}/users/approver_id`, {
+		    status: 'rejected'
+	  	})
+  		.then(function (response) {
+	  		console.log(response);
+  		})
+  		.catch(function (error) {
+	  		console.log(error);
+  		});
+	}	
+
 
     componentDidMount() {
 		this.getUsers();
@@ -87,6 +119,7 @@ class App extends Component {
 
     render() {
     	//console.log("Users:"+this.state.users+"\nUser_Id:"+this.state.user_id+"\nMonth_number:"+this.state.month_number+"\nWeeks:"+this.state.weeks);
+        console.log(this.state.week_id);
         return (
         <div className="app">
         	<h1>Timesheets App</h1>
@@ -109,8 +142,8 @@ class App extends Component {
         		onAddHour={this.handleHour} 
         		onAddMin={this.handleMin}/>
         	<div className="addReject">
-        		<button>Approve</button>
-        		<button>Reject</button>
+        		<button onClick={this.approve}>Approve</button>
+        		<button onClick={this.reject}>Reject</button>
         	</div>
         </div>);
         }

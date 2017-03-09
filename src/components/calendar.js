@@ -51,7 +51,7 @@ class Calendar extends Component{
 					<tbody>
 						{
 							this.props.weeks.map((week)=>{
-								console.log(week);
+								// console.log(week);
 								return <MonthWeeks key={week.week_id} days={week.days_in_week}/>
 							})
 						}	
