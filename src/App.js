@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SelectUser from './components/select-user';
 import Calendar from './components/calendar';
-import AddTime from './components/add-time';
 import axios from 'axios';
 
 import './App.css';
@@ -14,8 +13,6 @@ class App extends Component {
             user_id: 0,
             month_number: new Date().getMonth(),
             weeks: [],
-            hour: 0,
-			min: 0,
             week_id: 1
         }
         this.getUsers = this.getUsers.bind(this);
@@ -23,9 +20,6 @@ class App extends Component {
         this.getWeeks = this.getWeeks.bind(this);
         this.nextMonth = this.nextMonth.bind(this);
         this.prevMonth = this.prevMonth.bind(this);
-        this.handleHour = this.handleHour.bind(this);
-		this.handleMin = this.handleMin.bind(this);
-		this.handleNotes = this.handleNotes.bind(this);
 		this.getWeekId = this.getWeekId.bind(this);
 		this.approve = this.approve.bind(this);
 		this.reject = this.reject.bind(this);
@@ -60,32 +54,14 @@ class App extends Component {
 		this.setState({month_number: this.state.month_number >= 1? this.state.month_number - 1: 0});
 	}
 
-	handleHour(e){
-		this.setState({
-			hour: e.target.value
-		});
-	}
-
 	getWeekId(e){
 		this.setState({
 			week_id: e.target.value
 		})
 	}
 
-	handleMin(e){
-		this.setState({
-			min: e.target.value
-		});
-	}
-
-	handleNotes(e){
-		this.setState({
-			notes: e.target.value
-		})
-	}
-
 	approve(){
-		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${this.state.week_id}/users/1`, {
+		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${this.state.week_id}/${this.state.user_id}/1`, {
 		    status: 'approved'
 	  	})
   		.then(function (response) {
@@ -97,7 +73,7 @@ class App extends Component {
 	}
 
 	reject(){
-		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${this.state.week_id}/users/1`, {
+		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${this.state.week_id}/${this.state.user_id}/1`, {
 		    status: 'rejected'
 	  	})
   		.then(function (response) {
@@ -133,16 +109,6 @@ class App extends Component {
         		nextMonth={this.nextMonth}
         		prevMonth={this.prevMonth}
         		weeks={this.state.weeks}/>
-        	<textarea
-				id="notes" 
-				name="notes"
-			 	cols="40" 
-			 	rows="3"
-			 	onChange={this.handleNotes}
-			 	placeholder="Notes"></textarea>
-        	<AddTime 
-        		onAddHour={this.handleHour} 
-        		onAddMin={this.handleMin}/>
         	<div className="addReject">
         		<button onClick={this.approve}>Approve</button>
         		<button onClick={this.reject}>Reject</button>
