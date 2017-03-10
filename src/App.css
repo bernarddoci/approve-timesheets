@@ -20,6 +20,12 @@
 	margin: 0 0 10% 0;
 }
 /*==calendar==*/
+.app .calendar{
+	background: transparent;
+	box-shadow: 7px 7px 30px #515050;
+	border-radius: 20px;
+	padding: 20px;
+}
 .app .month-header button,
 .app .month-header h2{
 	display: inline-block;
@@ -38,17 +44,12 @@
 	margin: 0 auto;
 }
 .app .calendar .days-header table td{
-	padding: 16px;
-}
-.app .calendar .month{
-	background: #05513D;
-	border-radius: 10px;
-	box-shadow: 2px 2px 5px #333232;
-	padding: 20px;
+	padding: 15px;
 }
 .app .calendar .month table td{
-	padding: 8px;
-	background: #492B2B;
+	width: 55px;
+	height: 55px;
+	background: #705050;
 }
 .app .calendar .month table td:hover{
 	background: #FFA85A;
@@ -57,6 +58,7 @@
 .app .calendar .day-hour{
 	display: block;
 	font-size: .7em;
+	color: #C93131;
 }
 /*==AddTime & notes==*/
 .app .addTime, .app textarea{
