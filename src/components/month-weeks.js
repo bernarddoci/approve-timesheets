@@ -8,6 +8,7 @@ class MonthWeeks extends Component{
 			day: 0
 		}
 		this.getDay = this.getDay.bind(this);
+		this.updateWeekId = this.updateWeekId.bind(this);
 	}
 
 	getDay(day){
@@ -25,6 +26,10 @@ class MonthWeeks extends Component{
 		})
 	}
 
+	updateWeekId(){
+		this.props.getWeekId(this.props.week_id);
+	}
+
 	shouldComponentUpdate(nextProps, nextState){
 		if(this.state.day !== nextState.day){
 			this.updateTime(this.props.days);
@@ -36,7 +41,7 @@ class MonthWeeks extends Component{
 	render(){
 		// console.log(this.state.day);
 		return (
-			<tr onClick={()=>{console.log(this)}}>
+			<tr id={this.props.week_id} onClick={this.updateWeekId}>
 				{this.props.days.map((day)=>{
 					// console.log(day);
 					// {minutes: 0, id: 85, hours: 0, day_number: 6}

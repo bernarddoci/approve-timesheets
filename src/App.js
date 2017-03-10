@@ -13,7 +13,7 @@ class App extends Component {
             user_id: 0,
             month_number: new Date().getMonth(),
             weeks: [],
-            week_id: 1
+            week_id: 0
         }
         this.getUsers = this.getUsers.bind(this);
         this.getUserId = this.getUserId.bind(this);
@@ -54,9 +54,9 @@ class App extends Component {
 		this.setState({month_number: this.state.month_number >= 1? this.state.month_number - 1: 0});
 	}
 
-	getWeekId(e){
+	getWeekId(id){
 		this.setState({
-			week_id: e.target.value
+			week_id: id
 		})
 	}
 
@@ -96,8 +96,6 @@ class App extends Component {
 	}
 
     render() {
-    	//console.log("Users:"+this.state.users+"\nUser_Id:"+this.state.user_id+"\nMonth_number:"+this.state.month_number+"\nWeeks:"+this.state.weeks);
-        // console.log(this.state.week_id);
         return (
         <div className="app">
         	<h1>Timesheets App</h1>
@@ -108,7 +106,8 @@ class App extends Component {
         		month_number={this.state.month_number}
         		nextMonth={this.nextMonth}
         		prevMonth={this.prevMonth}
-        		weeks={this.state.weeks}/>
+        		weeks={this.state.weeks}
+        		getWeekId={this.getWeekId}/>
         	<div className="addReject">
         		<button onClick={this.approve}>Approve</button>
         		<button onClick={this.reject}>Reject</button>
