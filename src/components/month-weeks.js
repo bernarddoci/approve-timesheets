@@ -41,7 +41,7 @@ class MonthWeeks extends Component{
 	render(){
 		// console.log(this.state.day);
 		return (
-			<tr id={this.props.week_id} onClick={this.updateWeekId}>
+			<tr ref={this.props.week_id} onClick={this.updateWeekId}>
 				{this.props.days.map((day)=>{
 					// console.log(day);
 					// {minutes: 0, id: 85, hours: 0, day_number: 6}
