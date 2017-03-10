@@ -3,7 +3,7 @@
 	background: #149E79;
 	margin: 0 auto;
 	padding: 3%;
-	width: 40%;
+	width: 50%;
 	box-shadow: 10px 10px 20px #808080;
 	text-align: center;
 	color: #FFA85A;
@@ -38,7 +38,7 @@
 	margin: 0 auto;
 }
 .app .calendar .days-header table td{
-	padding: 11px;
+	padding: 16px;
 }
 .app .calendar .month{
 	background: #05513D;
@@ -47,12 +47,16 @@
 	padding: 20px;
 }
 .app .calendar .month table td{
-	padding: 15px;
+	padding: 8px;
 	background: #492B2B;
 }
 .app .calendar .month table td:hover{
 	background: #FFA85A;
 	color: #421212;
+}
+.app .calendar .day-hour{
+	display: block;
+	font-size: .7em;
 }
 /*==AddTime & notes==*/
 .app .addTime, .app textarea{
