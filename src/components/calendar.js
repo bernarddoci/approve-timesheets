@@ -76,7 +76,7 @@ class Calendar extends Component{
 						{
 							this.props.weeks.map((week)=>{
 								// console.log(week);
-								return <MonthWeeks getWeekId={this.props.getWeekId} week_id={week.week_id} hour={this.state.hour} min={this.state.min} key={week.week_id} days={week.days_in_week}/>
+								return <MonthWeeks status={this.props.status} getWeekId={this.props.getWeekId} week_id={week.week_id} hour={this.state.hour} min={this.state.min} key={week.week_id} days={week.days_in_week}/>
 							})
 						}	
 					</tbody>

@@ -18,6 +18,7 @@ class MonthWeeks extends Component{
 	}
 
 	updateTime(days){
+		// Add hours and min for particular day
 		days.forEach((day)=>{
 			if(day.day_number === this.state.day){
 				day.hours = this.props.hour;
@@ -45,7 +46,7 @@ class MonthWeeks extends Component{
 				{this.props.days.map((day)=>{
 					// console.log(day);
 					// {minutes: 0, id: 85, hours: 0, day_number: 6}
-					return <Day getDay={this.getDay} key={day.day_number} min={day.minutes} hour={day.hours} day={day.day_number}/>;
+					return <Day status={this.props.status} getDay={this.getDay} key={day.day_number} min={day.minutes} hour={day.hours} day={day.day_number}/>;
 				})}
 			</tr>);
 	}

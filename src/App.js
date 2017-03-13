@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,8 @@ class App extends Component {
             user_id: 0,
             month_number: new Date().getMonth(),
             weeks: [],
-            week_id: 0
+            week_id: 0,
+            status: 'neutral'
         }
         this.getUsers = this.getUsers.bind(this);
         this.getUserId = this.getUserId.bind(this);
@@ -62,7 +63,7 @@ class App extends Component {
 
 	approve(){
 		axios.post(`https://timesheet-staging-aurity.herokuapp.com/api/training/weeks/${this.state.week_id}/${this.state.user_id}/1`, {
-		    status: 'approved'
+            status: 'approved'
 	  	})
   		.then(function (response) {
 	  		console.log(response);
@@ -70,6 +71,7 @@ class App extends Component {
   		.catch(function (error) {
 	  		console.log(error);
   		});
+        this.setState({status: 'approved'});
 	}
 
 	reject(){
@@ -82,6 +84,7 @@ class App extends Component {
   		.catch(function (error) {
 	  		console.log(error);
   		});
+        this.setState({status: 'rejected'});
 	}	
 
 
@@ -97,23 +100,23 @@ class App extends Component {
 
     render() {
         return (
-        <div className="app">
-        	<h1>Timesheets App</h1>
-        	<SelectUser 
-        		getUserId={this.getUserId}
-        		users={this.state.users}/>
-        	<Calendar 
-        		month_number={this.state.month_number}
-        		nextMonth={this.nextMonth}
-        		prevMonth={this.prevMonth}
-        		weeks={this.state.weeks}
-        		getWeekId={this.getWeekId}/>
-        	<div className="addReject">
-        		<button onClick={this.approve}>Approve</button>
-        		<button onClick={this.reject}>Reject</button>
-        	</div>
-        </div>);
+            <div className="app">
+            	<h1>Timesheets App</h1>
+            	<SelectUser 
+            		getUserId={this.getUserId}
+            		users={this.state.users}/>
+            	<Calendar 
+            		month_number={this.state.month_number}
+            		nextMonth={this.nextMonth}
+            		prevMonth={this.prevMonth}
+            		weeks={this.state.weeks}
+            		getWeekId={this.getWeekId}
+                    status={this.state.status}/>
+            	<div className="addReject">
+            		<button onClick={this.approve}>Approve</button>
+            		<button onClick={this.reject}>Reject</button>
+            	</div>
+            </div>);
         }
     }
 
-export default App;

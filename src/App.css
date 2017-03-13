@@ -18,12 +18,12 @@
 	font-size: 1.2em;
 	padding: 1%;
 	margin: 0 0 10% 0;
-	box-shadow: -5px -5px 5px #3D3C3C;
+	box-shadow: -5px 5px 5px #3D3C3C;
 }
 /*==calendar==*/
 .app .calendar{
 	background: transparent;
-	box-shadow: -10px -10px 10px #515050;
+	box-shadow: -10px 10px 5px #515050;
 	border-radius: 20px;
 	padding: 20px;
 }
@@ -88,4 +88,13 @@
 }
 .app .addReject button:hover{
 	background: #CA7F4D;
+}
+.neutral{
+	color: black !important;
+}
+.approved{
+	color: green !important;
+}
+.rejected{
+	color: red !important;
 }
